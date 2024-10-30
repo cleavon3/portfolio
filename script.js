@@ -522,7 +522,7 @@ const checkEmail = (input) => {
 };
 
 form.addEventListener("submit", e => {
-    e.preventDefault();
+    // e.preventDefault(); to allow for submission
 
     checkLength(username, 2);
     checkLength(subject, 2);
