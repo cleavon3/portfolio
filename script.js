@@ -532,7 +532,7 @@ form.addEventListener("submit", e => {
 });
 // END OF FORM VALIDATION
 // script.js
-document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+document.querySelector('contactForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('name').value;
