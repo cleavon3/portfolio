@@ -1,6 +1,6 @@
 // server.js
 const express = require('express');
-const sendMail = require('./sendEmail');
+const sendMail = require('./api/sendEmail');
 const bodyParser = require('body-parser');
 
 const app = express();
