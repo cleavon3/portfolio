@@ -1,32 +1,31 @@
-// sendEmail.js
-require('dotenv').config();
 const nodemailer = require('nodemailer');
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // true for 465, false for 587
-    auth: {
-        user: process.env.EMAIL, // Your email address
-        pass: process.env.PASSWORD, // Your email password
-    },
-    tls: {
-        rejectUnauthorized: false, // Helps bypass certificate errors
-    },
-});
+module.exports = async (req, res) => {
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: `Method ${req.method} not allowed` });
+    }
 
-// Function to send email
-const sendMail = (mailOptions) => {
-    return new Promise((resolve, reject) => {
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                return reject(error); // Reject the promise with the error
-            }
-            resolve(info); // Resolve the promise with the info
-        });
+    const { email, subject, message } = req.body;
+
+    const transporter = nodemailer.createTransport({
+        service: 'Gmail', // e.g., Gmail
+        auth: {
+            user: process.env.EMAIL,
+            pass: process.env.EMAIL_PASSWORD,
+        },
     });
-};
 
-// Export the sendMail function
-module.exports = sendMail;
+    const mailOptions = {
+        from: process.env.EMAIL,
+        to: email,
+        subject: subject || 'No Subject',
+        text: message || 'No message provided',
+    };
+
+    try {
+        const info = await transporter.sendMail(mailOptions);
+        res.status(200).json({ status: 'Email sent successfully', info });
+    } catch (error) {
+        res.status(500).json({ error: `Error sending email: ${error.message}` });
+    }
+};
