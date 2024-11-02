@@ -5,10 +5,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
-
 app.post('/api/sendEmail', async (req, res) => {
+    console.log('Request received:', req.body); // Log the request body
     const { name, email, subject, message } = req.body;
-
     // Define mail options
     const mailOptions = {
         from: process.env.EMAIL, // Use your authenticated email
