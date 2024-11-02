@@ -1,16 +1,23 @@
+// server.js
 const express = require('express');
+const sendMail = require('./sendEmail');
 const bodyParser = require('body-parser');
-require('dotenv').config();
-const sendEmail = require('./sendEmail'); // Adjusted path to sendEmail.js
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+app.use(bodyParser.json());
 
-app.use(bodyParser.json()); // Middleware to parse JSON requests
+app.post('/api/sendEmail', (req, res) => {
+    const { name, email, subject, message } = req.body;
 
-// Endpoint for sending emails
-app.post('/api/sendEmail', sendEmail);
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+    sendMail({ name, email, subject, message }, (error, info) => {
+        if (error) {
+            console.error('Error sending email:', error);
+            res.status(500).json({ status: 'Failed to send email' });
+        } else {
+            console.log('Email sent:', info.response);
+            res.status(200).json({ status: 'Email sent successfully' });
+        }
+    });
 });
+
+app.listen(3000, () => console.log('Server running on port 3000'));
