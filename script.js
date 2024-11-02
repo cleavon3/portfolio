@@ -531,4 +531,35 @@ form.addEventListener("submit", e => {
     checkRequiredFields([username, email, subject, message]);
 });
 // END OF FORM VALIDATION
+// script.js
+document.querySelector('.contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+
+    // Send data to the serverless function
+    const response = await fetch('/api/sendEmail', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, subject, message }),
+    });
+
+    const result = await response.json();
+
+    // Handle response
+    if (response.ok) {
+        alert('Email sent successfully!');
+        // Optionally reset the form
+        document.querySelector('.contact-form').reset();
+    } else {
+        alert(`Error: ${result.status}`);
+    }
+});
+
+
 // END OF PROJECT
