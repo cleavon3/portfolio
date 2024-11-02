@@ -26,6 +26,9 @@ app.post('/api/sendEmail', async (req, res) => {
     }
 });
 
+app.get('/api/sendEmail', (req, res) => {
+    res.send('Server is running!');
+});
 // Start the server
 const PORT = process.env.PORT || 3000; // Use environment port or default to 3000
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
