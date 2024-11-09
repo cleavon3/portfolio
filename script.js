@@ -445,6 +445,7 @@ const email = document.getElementById("email");
 const subject = document.getElementById("subject");
 const message = document.getElementById("message");
 const messages = document.querySelectorAll(".message");
+
 const error = (input, message) => {
   input.nextElementSibling.classList.add("error");
   input.nextElementSibling.textContent = message;
@@ -452,46 +453,61 @@ const error = (input, message) => {
 
 const success = (input) => {
   input.nextElementSibling.classList.remove("error");
-  // input.nextElementSibling.textContent = "";
+  input.nextElementSibling.textContent = "";
 };
 
 const checkRequiredFields = (inputArr) => {
+  let isValid = true;
   inputArr.forEach((input) => {
     if (input.value.trim() === "") {
       error(input, `${input.id} is required`);
+      isValid = false;
+    } else {
+      success(input);
     }
   });
+  return isValid;
 };
 
 const checkLength = (input, min) => {
   if (input.value.trim().length < min) {
     error(input, `${input.id} must be at least ${min} characters long`);
+    return false;
   } else {
     success(input);
+    return true;
   }
 };
 
 const checkEmail = (input) => {
   const regEx =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\\.,;:\s@\"]+\.)+[^<>()[\]\\.,;:\s@\"]{2,})$/i;
   if (regEx.test(input.value.trim())) {
     success(input);
+    return true;
   } else {
     error(input, "Email is not valid");
+    return false;
   }
 };
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  const isUsernameValid = checkLength(username, 2);
+  const isSubjectValid = checkLength(subject, 2);
+  const isMessageValid = checkLength(message, 5);
+  const isEmailValid = checkEmail(email);
+  const areRequiredFieldsValid = checkRequiredFields([username, email, subject, message]);
 
-  checkLength(username, 2);
-  checkLength(subject, 2);
-  checkLength(message, 5);
-  checkEmail(email);
-  checkRequiredFields([username, email, subject, message]);
+  // Prevent form submission if any validation fails
+  if (!isUsernameValid || !isSubjectValid || !isMessageValid || !isEmailValid || !areRequiredFieldsValid) {
+    e.preventDefault();
+  }
 });
+
 // END OF FORM VALIDATION
 // script.js
+
+
 // document.querySelector('contactForm').addEventListener('submit', async (e) => {
 //     e.preventDefault();
 
