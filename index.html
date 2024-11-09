@@ -254,24 +254,29 @@
           <form name="contact" method="POST" data-netlify="true" class="contact-form center" id="contactForm">
             <input
               type="text"
+              name="name"
               class="contact-form-input pointer-enter"
               placeholder="name"
               id="name"
               autocomplete="off"
+              required
             />
             <p class="message">Error Message</p>
 
             <input
-              type="text"
+              type="email"
+              name="email"
               class="contact-form-input pointer-enter"
               placeholder="Email"
               id="email"
               autocomplete="off"
+              required
             />
             <p class="message">Error Message</p>
 
             <input
               type="text"
+              name="subject"
               class="contact-form-input pointer-enter"
               placeholder="Subject"
               id="subject"
@@ -280,10 +285,12 @@
             <p class="message">Error Message</p>
 
             <textarea
+              name="message"
               class="contact-form-input contact-form-textarea pointer-enter"
               placeholder="Message"
               id="message"
               autocomplete="off"
+              required
             ></textarea>
             <p class="message">Error Message</p>
 
