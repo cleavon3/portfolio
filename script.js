@@ -245,7 +245,7 @@ menuIcon.addEventListener("click", () => {
 // about me text///
 const aboutMeText = document.querySelector(".about-me-text");
 const aboutMeTextContent =
-  "I am a backend developer & I do not talk much, just contact me :)";
+  "I’m Cleavon, a Python Backend Developer passionate about building efficient web solutions. 🚀";
 
 Array.from(aboutMeTextContent).forEach((char) => {
   const span = document.createElement("span"); // Correcting the creation of the span element
