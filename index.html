@@ -121,12 +121,9 @@
         <div class="projects center">
           <div class="project pointer-enter">
             <img src="images/project/project-1-big.jpg" alt="Project 1" />
-            <!-- <img src="images/project1.jpg" alt="Project 1"/>
-                     <div class="project-info">
-                         <h4 class="project-info-heading">Project 1</h4>
-                         <p class="project-info-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                         <a href="#" class="project-info-btn">View Project</a> -->
           </div>
+
+
           <div class="project pointer-enter">
             <img src="images/project/project-2-big.jpg" alt="Project 2" />
           </div>
@@ -154,11 +151,11 @@
           <div class="project pointer-enter">
             <img src="images/project/project-10-big.jpg" alt="Project 10" />
           </div>
-        </div>
         <!-- PROJECT HIDE BUTTON -->
 
         <!-- PROJECT HIDE BUTTON -->
         <button class="project-hide-btn">&laquo;Close</button>
+
 
         <!-- END OF PROJECT HIDE BUTTON -->
         <!-- End of projects -->
@@ -174,6 +171,18 @@
           </div>
         </a>
         <!-- END OF PROJECTS BUTTON -->
+          <!-- PROJECTS BUTTON -->
+<!-- ADDITIONAL BUTTONS FOR GITHUB AND LIVE CODE -->
+<div class="code-buttons center">
+  <a href="https://github.com/your-github-repo" class="code-btn github-btn" target="_blank">
+    View Demo & Code
+  </a>
+
+  
+
+</div>
+<!-- END OF PROJECTS BUTTON -->
+
       </section>
 
       <!-- END OF SECTION 3 -->
@@ -251,45 +260,50 @@
         <!-- Contact form -->
         <div class="form-wrapper">
           <h2 class="form-heading">Let's Talk</h2>
-          <form name="contact" method="POST" data-netlify="true" class="contact-form center" id="contactForm">
+          <form
+            class="contact-form center"
+            method="POST"
+            data-netlify="true"
+            name="contact"
+          >
             <input
               type="text"
-              name="name"
               class="contact-form-input pointer-enter"
               placeholder="name"
               id="name"
               autocomplete="off"
+              name="name"
               required
             />
             <p class="message">Error Message</p>
 
             <input
               type="email"
-              name="email"
               class="contact-form-input pointer-enter"
               placeholder="Email"
               id="email"
               autocomplete="off"
+              name="email"
               required
             />
             <p class="message">Error Message</p>
 
             <input
               type="text"
-              name="subject"
               class="contact-form-input pointer-enter"
               placeholder="Subject"
               id="subject"
               autocomplete="off"
+              name="subject"
             />
             <p class="message">Error Message</p>
 
             <textarea
-              name="message"
               class="contact-form-input contact-form-textarea pointer-enter"
               placeholder="Message"
               id="message"
               autocomplete="off"
+              name="message"
               required
             ></textarea>
             <p class="message">Error Message</p>

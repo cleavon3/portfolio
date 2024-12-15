@@ -316,6 +316,8 @@ const projectsBtnText = document.querySelector(".projects-btn span");
 
 let showHideBool = true;
 
+
+
 const showProjects = (project, i) => {
   setTimeout(() => {
     project.style.display = "flex";
@@ -482,37 +484,18 @@ const checkEmail = (input) => {
 };
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
   checkLength(username, 2);
   checkLength(subject, 2);
   checkLength(message, 5);
   checkEmail(email);
   checkRequiredFields([username, email, subject, message]);
+
+  const notValid = Array.from(messages).find(message => {
+    return message.classList.contains("error")
+  });
+
+  notValid && e.preventDefault()
+
 });
-// END OF FORM VALIDATION
-// script.js
-// document.querySelector('contactForm').addEventListener('submit', async (e) => {
-//     e.preventDefault();
-
-//     const name = document.getElementById('name').value;
-//     const email = document.getElementById('email').value;
-//     const subject = document.getElementById('subject').value;
-//     const message = document.getElementById('message').value;
-
-//     const response = await fetch('/api/sendEmail', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({ name, email, subject, message }),
-//     });
-
-//     const result = await response.json();
-//     if (response.ok) {
-//         alert('Email sent successfully!');
-//         document.querySelector('.contact-form').reset();
-//     } else {
-//         alert(`Error: ${result.status}`);
-//     }
-// });
 
 // END OF PROJECT

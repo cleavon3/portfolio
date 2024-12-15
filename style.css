@@ -708,6 +708,8 @@ html{
         transform: scale(1);
     }
 }
+
+
 /*  END OF BIG PROJECT IMAGE */
 
 /* PROJECT HIDE BUTTON */
@@ -735,6 +737,7 @@ html{
     transition: transform 0.5s;
   
 }
+
 /* END OF PROJECT HIDE BUTTON */
 /* END OF PROJECT */
 
@@ -742,7 +745,7 @@ html{
 
 .projects-btn {
     left: 50%;
-    transform: translateX(-50%);  
+    transform: translateX(-50%);
 }
 
 .projects-btn .main-btn-line{
@@ -762,6 +765,36 @@ html{
     border-left: 0.1rem solid #fff;
     border-right: none;
 }
+
+/* Ensure the project container has relative positioning */
+
+  /* Button container that is aligned at the bottom of the project */
+.code-buttons {
+    position: absolute;
+    bottom: -50px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    width: 100%; /* Ensure the button container takes full width */
+}
+  
+  /* Styling for the button */
+.code-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+  
+.code-btn:hover {
+    background-color: #e7be08;
+}
+  
 
 /* END OF PROJECTS BUTTON */
 
@@ -1174,10 +1207,6 @@ html{
     
 }
 /* END OF RESPONSIVE */
-
-
-
-
 
 
 
