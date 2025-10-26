@@ -405,7 +405,7 @@ html {
 }
 
 .circle-1 {
-  background: url(images/django.png) center no-repeat;
+  background: url(images/ads.png) center no-repeat;
   background-size: cover;
   background-clip: content-box;
   border: 0.5rem dotted #a14b1a;
@@ -413,7 +413,7 @@ html {
 }
 
 .circle-2 {
-  background: url(images/Fastapi.png) center no-repeat;
+  background: url(images/social\ media.jpg) center no-repeat;
   background-size: cover;
   background-clip: content-box;
   border: 0.5rem dashed #ffbd07;
@@ -421,7 +421,7 @@ html {
 }
 
 .circle-3 {
-  background: url(images/python.png) center no-repeat;
+  background: url(images/AI.jpg) center no-repeat;
   background-size: cover;
   background-clip: content-box;
   border: 1rem double #9b0e0e;
