@@ -95,7 +95,7 @@ const mouseCircleTransform = (hoveredEI) => {
             border-radius: ${
               getComputedStyle(hoveredEI).borderBottomLeftRadius
             };
-            transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s, transform 0.5s, border-radius 0.5s; 
+            transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s, transform 0.5s, border-radius 0.5s;
             `;
     };
 
@@ -245,7 +245,7 @@ menuIcon.addEventListener("click", () => {
 // about me text///
 const aboutMeText = document.querySelector(".about-me-text");
 const aboutMeTextContent =
-  "I’m Cleavon, a Python Backend Developer passionate about building efficient web solutions. 🚀";
+  "I’m Cleavon, I offer comprehensive digital marketing solutions designed to elevate your brand";
 
 Array.from(aboutMeTextContent).forEach((char) => {
   const span = document.createElement("span"); // Correcting the creation of the span element
@@ -315,8 +315,6 @@ const projectsBtn = document.querySelector(".projects-btn");
 const projectsBtnText = document.querySelector(".projects-btn span");
 
 let showHideBool = true;
-
-
 
 const showProjects = (project, i) => {
   setTimeout(() => {
@@ -490,12 +488,11 @@ form.addEventListener("submit", (e) => {
   checkEmail(email);
   checkRequiredFields([username, email, subject, message]);
 
-  const notValid = Array.from(messages).find(message => {
-    return message.classList.contains("error")
+  const notValid = Array.from(messages).find((message) => {
+    return message.classList.contains("error");
   });
 
-  notValid && e.preventDefault()
-
+  notValid && e.preventDefault();
 });
 
 // END OF PROJECT
