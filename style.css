@@ -631,6 +631,12 @@ html {
     transform: rotateY(0);
   }
 }
+|* PROJECT OVERLAY- ADDED NEW */ .project-overlay {
+  position: absolute;
+  inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0 */
+  z-index: 10;
+  cursor: pointer;
+}
 
 /* BIG PROJECT IMAGE */
 .project-img-wrapper {
